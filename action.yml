@@ -1,0 +1,67 @@
+name: 'Prepare Release'
+description: 'Generates the changelog and contributors list since the last tag'
+inputs:
+  baseRef:
+    description: 'The Base branch'
+    required: true
+    default: ''
+  headRef:
+    description: 'The HEAD branch'
+    required: true
+    default: ''
+  tagRef:
+    description: 'The new release tag'
+    required: true
+    default: ''
+  breakingChangeTitle:
+    description: 'The breaking change title'
+    required: false
+    default: '## :warning: Breaking Changes'
+  enhancementTitle:
+    description: 'The enhancement title'
+    required: false
+    default: '## :rocket: Features'
+  bugTitle:
+    description: 'The bug title'
+    required: false
+    default: '## :bug: Bugs'
+  regressionTitle:
+    description: 'The regression title'
+    required: false
+    default: '## :fire: Regressions'
+  testTitle:
+    description: 'The test title'
+    required: false
+    default: '## :white_check_mark: Tests'
+  dependencyTitle:
+    description: 'The dependency title'
+    required: false
+    default: '## :package: Dependencies'
+  documentationTitle:
+    description: 'The documentation title'
+    required: false
+    default: '## :page_facing_up: Documentation'
+  unlabeledTitle:
+    description: 'The unlabeled title'
+    required: false
+    default: '## :label: Unlabeled'
+  changelogMessage:
+    description: 'The changelog message'
+    required: false
+    default: 'If you are interested in contributing to the next version of this project, you can get started by reading the [documentation](/blob/main/README.md). :+1:'
+  propsMessage:
+    description: 'The props message'
+    required: false
+    default: 'Thanks to all the contributors who made this release possible through their work on development, design, testing, project management, and more:'
+  propsTitle:
+    description: 'The props message'
+    required: false
+    default: ':heart: Props'
+outputs:
+  changelog:
+    description: 'The changelog markup'
+  props:
+    description: 'The props markup'
+runs:
+  using: 'node12'
+  main: 'index.js'
